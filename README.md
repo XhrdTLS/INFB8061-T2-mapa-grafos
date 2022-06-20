@@ -1,10 +1,10 @@
 # INFB8061-T2-mapa-grafos
 Página web que aplica contenidos relacionado a los grafos, orientado a una simulación de un mapa con datos aleatorios.
 
---
+---
 ## Anotaciones Importantes
 Para ordenar el versionamiento, se solicita que en primera instancia se suban los cambios a las branchs (ramas) personales, luego hacer pull request para combinar y comprobar la compatibilidad en la rama principal (main-branch)
 
 * Para agregar un contenido, se debe colocar la palabra ___Agregar: <descripción>___
-* Para cambio de un contenido, se debe colocar la palabra ___Cambio: <descripción>___
-* Para eliminar un contenido, se debe colocar la palabra ___Eliminar: <descripción>___
+* Para cambio de un contenido, se debe colocar la palabra ___Cambia: <descripción>___
+* Para eliminar un contenido, se debe colocar la palabra ___Elimina: <descripción>___
