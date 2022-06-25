@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Grafos</title>
-    <link rel="stylesheet" href="css/estilos_main.css"/>
+    <title>Los Isomórficos</title>
+    <link rel="stylesheet" href="css/estilos_main.css" />
 </head>
+
 <body>
     <div class="inicio">
-        <nav class="nav__inicio">
+        <div class="nav__inicio">
             <div class="container nav__container">
                 <div class="nombre">
-                    <h2 class="nombre__grupo">Grupo <span class="grupo_negrita">Los Isomórficos</span></h2>
+                    <h2>Grupo <span class="nombre-color">Los Isomórficos</span></h2>
                 </div>
                 <div class="links">
-                    <a class="link">Inicio</a>
-                    <a href="grafos.html" class="link">Grafos</a>
-                    <a href="https://youtu.be/4gMKj83lTCY" class="link">Tutorial</a>
-                    <a href="https://docs.google.com/document/d/1p1cPrLK0Ua-Ob9F9RxJX6WpUO6AuyRL_/edit?usp=sharing&ouid=102609145598646910221&rtpof=true&sd=true" class="link">Documentación</a>
-                    <a href="equipo.html" class="link">Equipo</a>
+                    <a href="index.html" class="link">Inicio</a>
+                    <a href="equipo.html" class="link">Nosotros</a>
+                    <a href="documentacion.html" class="link">Documentación</a>
+                    <a href="aplicativo.html" class="boton-comenzar">COMENZAR</a>
                 </div>
             </div>
-        </nav>
-        <section class="container inicio__principal">
+        </div>
+    </div>
+    <section class="container inicio__principal">
+        <h1 class="titulo">La demostración de los grafos, </h1>
+        <h1 class="titulo"><span class="resaltar">en un mapa</span>.</h1>
+        <div class="row__hero">
+            <img src="css/img/image-space.jpg" alt="por cambiar" height=300px>
             <div class="inicio__textos">
-                <h1 class="titulo">Crear Grafos de forma sencilla y sin esfuerzo</h1>
-                <p class="copia"> Para comenzar, <span class="copia__negrita">haz click</span> en el boton</p>
-                <a href="grafos.html" class="comenzar"> Comenzar </a>
-                <p class="copia">Si no sabes como usarlo</p>
-                <a href="" class="comenzar">Tutorial</a>
+                <p>El aplicativo simula un auto de la compañía Isomorficos, tratando de detectar la mejor ruta para
+                    llegar a su destino, hay tres afctores que lo pueden alterar:</p>
+                <li>La distancia que debe recorrer</ul>
+                <li>El trafico del camino</li>
+                <li>*variable por definir</li>
+                </li>
+                <section class="documentacion">
+                    <div class="docs">
+                        <p class="texto-oscuro">Si no sabes como usarlo</p>
+                        <a href="documentacion.html" class="boton-comenzar como">COMO EMPEZAR</a>
+                    </div>
+                </section>
             </div>
-            <img src="img/imagenGrafo-actualizada.png" class="imagen" alt="imagengrafo">
-        </section>
+        </div>
+    </section>
     </div>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </body>
-</html>
