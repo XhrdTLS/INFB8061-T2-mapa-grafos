@@ -4,57 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Grafos</title>
+    <title>Simulación Isomórficos App</title>
     <link rel="stylesheet" href="css/estilos_main.css">
-    <link rel="stylesheet" href="css/estilos_grafos.css">
+    <link rel="stylesheet" href="css/estilos_aplicativo.css">
 </head>
 
-<body>
+<body class="app">
     <div class="inicio">
-        <nav class="nav__inicio">
+        <div class="nav__inicio">
             <div class="container nav__container">
                 <div class="nombre">
-                    <h2 class="nombre__grupo">Grupo <span class="grupo_negrita">Los Isomórficos</span></h2>
+                    <h2>Grupo <span class="nombre-color">Los Isomórficos</span></h2>
                 </div>
                 <div class="links">
                     <a href="index.html" class="link">Inicio</a>
-                    <a class="link">Grafos</a>
-                    <a href="https://youtu.be/4gMKj83lTCY" class="link">Tutorial</a>
-                    <a href="https://docs.google.com/document/d/1p1cPrLK0Ua-Ob9F9RxJX6WpUO6AuyRL_/edit?usp=sharing&ouid=102609145598646910221&rtpof=true&sd=true"
-                        class="link">Documentación</a>
-                    <a href="equipo.html" class="link">Equipo</a>
+                    <a href="equipo.html" class="link">Nosotros</a>
+                    <a href="documentacion.html" class="link">Documentación</a>
+                    <a href="aplicativo.html" class="link boton-comenzar-sel">COMENZAR</a>
                 </div>
             </div>
-        </nav>
-        <section class="container_principal">
-            <b>Selecciona la pantalla, números o flechas</b>
-            <section class="control_principal">
-
-                <div class="controles">
-                    <p class="botones_control active" id="dib_p1">Pantalla 1</p>
-                    <p class="botones_control" id="dib_p2">Pantalla 2</p>
-                </div>
-                <p class="botones_control" id="eliminar_grafos">Eliminar Todo</p>
-                <section class="casillas">
-                    <div class="check"><input type="checkbox" name="numeros" checked="true">Numeros</div>
-                    <div class="check"><input type="checkbox" name="flechas" checked="true">Flechas</div>
-                </section>
-            </section>
-        </section>
-
-        <section class="principal">
-            <div class="pantallas_grafo">
-                <div class="pantalla">
-                    <svg class="lienzo" id="canvas_1" viewBox="0 0 500 400"></svg>
-                </div>
-            </div>
-            <div class="pantallas_grafo">
-                <div class="pantalla">
-                    <svg class="lienzo" id="canvas_2">></svg>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
+    <section class="interactive-zone">
+        <div class="pantalla">
+            <svg class="screen" id="screen-zone" viewBox="0 0 500 400"></svg>
+        </div>
+    </section>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="js/grafos.js"></script>
 </body>

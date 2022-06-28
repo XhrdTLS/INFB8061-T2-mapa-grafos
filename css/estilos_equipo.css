@@ -1,27 +1,51 @@
-.tarjetas {
-    padding-top: 100px;
+.nosotros {
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+    padding-top: 30px;
+    height: auto;
+}
+
+#titulo-eq {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.container-nos {
     display: flex;
     justify-content: space-evenly;
 }
 
+.profile-image {
+    width: 150px;
+    height: 150px;
+    background: url("img/no-pic-profile.png");
+    background-position: center;
+    background-size: 120px;
+    background-repeat: no-repeat;
+}
+
 .card {
-    width: 190px;
-    height: 254px;
-    background: rgb(255, 255, 255);
-    border-radius: 6px;
-    box-shadow: 0.3em 0.3em 0.7em #FFFFFF30;
+    width: 300px;
+    height: 260px;
+    background: var(--primario);
+    border-radius: 12px;
+    box-shadow: var(--sombra) var(--color_sombra-2);
     transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: rgb(250, 250, 250) 0.2em solid;
+    border: var(--primario) 0.2em solid;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding-left: 10px;
+    padding: 10px;
 }
 
 .card:hover {
-    border: #006fff 0.2em solid;
+    border: var(--verde-agua) 0.2em solid;
 }
 
-.nombres_card {
-    color: #3282B8;
+.name {
+    font-weight: 900;
+    color: var(--blanco1);
 }

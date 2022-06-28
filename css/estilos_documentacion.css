@@ -1,0 +1,14 @@
+.documentacion {
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+    margin: 0 auto;
+    overflow: auto;
+    padding-top: 30px;
+    height: auto;
+}
+
+#titulo-doc{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
