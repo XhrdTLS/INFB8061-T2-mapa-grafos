@@ -1,14 +1,45 @@
-.documentacion {
+.container-doc {
     display: grid;
-    grid-template-columns: 2fr 6fr;
-    margin: 0 auto;
+    grid-template-columns: 1.5fr 6fr;
     overflow: auto;
-    padding-top: 30px;
-    height: auto;
+}
+
+.container-info {
+    background-color: var(--secundario);
+    padding: 20px;
+}
+
+.container-indice{
+    background-color: var(--primario);
+    padding: 10px;
+    padding-top: 20px;
+    border-right: 1px solid var(--verde-agua);
 }
 
 #titulo-doc{
     font-size: 40px;
     font-weight: 700;
-    margin-bottom: 30px;
+    padding: 30px;
+}
+
+.indice{
+    color: var(--blanco1);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.linea{
+    border: 1px solid var(--verde-agua);
+}
+
+.title-texto{
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--blanco1);
+    padding: 20px 0px 10px 0px;
+}
+
+.info-texto{
+    font-size: 20px;
+    font-weight: 400;
 }

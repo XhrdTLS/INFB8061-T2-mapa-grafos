@@ -5,33 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulación Isomórficos App</title>
-    <link rel="stylesheet" href="css/estilos_main.css">
     <link rel="stylesheet" href="css/estilos_aplicativo.css">
+    <link rel="stylesheet" href="css/estilos_main.css">
 </head>
 
-<body class="app">
-    <div class="inicio">
-        <div class="nav__inicio">
-            <div class="container nav__container">
-                <div class="nombre">
-                    <h2>Grupo <span class="nombre-color">Los Isomórficos</span></h2>
-                </div>
-                <div class="links">
-                    <a href="index.html" class="link">Inicio</a>
-                    <a href="equipo.html" class="link">Nosotros</a>
-                    <a href="documentacion.html" class="link">Documentación</a>
-                    <a href="aplicativo.html" class="link boton-comenzar-sel">COMENZAR</a>
+<body>
+    <div class="fondo">
+        <div class="inicio">
+            <div class="nav__inicio">
+                <div class="container nav__container">
+                    <div class="nombre">
+                        <h2>Grupo <span class="nombre-color">Los Isomórficos</span></h2>
+                    </div>
+                    <div class="links">
+                        <a href="index.html" class="link">Inicio</a>
+                        <a href="equipo.html" class="link">Nosotros</a>
+                        <a href="documentacion.html" class="link">Documentación</a>
+                        <a href="aplicativo.html" class="link boton-comenzar-sel">COMENZAR</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <section class="interactive-zone">
+            <div class="pantalla" id="screen">
+                <p class="negative">Selecciona el parámetro para comenzar</p>
+                <section class="control_param">
+                    <div class="controles">
+                        <div class="botones_control active" id="vel">
+                            <img src="css/img/speed.png" width="40px" height="40px">
+                            <p class="boton">Velocidad</p> 
+                        </div>
+                        <div class="botones_control" id="dist">
+                            <img src="css/img/distance-line.png" width="40px" height="40px">
+                            <p class="boton">Distancia</p> 
+                        </div>
+                        <div class="botones_control" id="traf">
+                            <img src="css/img/traffic-lights.png" width="40px" height="40px">
+                            <p class="boton">Tráfico</p> 
+                        </div>
+                    </div>
+                    <div class="botones_control" id="clear_screen">
+                        <p class="boton">Reiniciar</p> 
+                    </div>
+                </section>
+            </div>
+        </section>
     </div>
-    <section class="interactive-zone">
-        <div class="pantalla">
-            <svg class="screen" id="screen-zone" viewBox="0 0 500 400"></svg>
-        </div>
-    </section>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="js/grafos.js"></script>
+    <script src="js/script_mapa.js"></script>
 </body>
 
 </html>
