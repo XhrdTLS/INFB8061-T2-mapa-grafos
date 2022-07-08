@@ -27,28 +27,32 @@
             </div>
         </div>
         <section class="interactive-zone">
-            <div class="pantalla" id="screen">
-                <p class="negative">Selecciona el parámetro para comenzar</p>
+        <div class="sector-pantalla""></div>
                 <section class="control_param">
-                    <div class="controles">
-                        <div class="botones_control active" id="vel">
-                            <img src="css/img/speed.png" width="40px" height="40px">
-                            <p class="boton">Velocidad</p> 
+                    <p class="negative">Selecciona el parámetro para comenzar</p>
+                    <div class="run">
+                        <div class="botones_control" id="start">
+                            <p class="boton">Iniciar</p>
                         </div>
-                        <div class="botones_control" id="dist">
-                            <img src="css/img/distance-line.png" width="40px" height="40px">
-                            <p class="boton">Distancia</p> 
+                        <div class="botones_control" id="clear_screen">
+                            <p class="boton">Reiniciar</p>
+                        </div>
+                    </div>
+                    <div class="controles">
+                        <div class="botones_control active" id="dist">
+                            <img src="css/img/distance-line.png" width="30px" height="30px">
+                            <p class="boton">Distancia</p>
+                        </div>
+                        <div class="botones_control" id="vel">
+                            <img src="css/img/speed.png" width="30px" height="30px">
+                            <p class="boton">Velocidad</p>
                         </div>
                         <div class="botones_control" id="traf">
-                            <img src="css/img/traffic-lights.png" width="40px" height="40px">
-                            <p class="boton">Tráfico</p> 
+                            <img src="css/img/traffic-lights.png" width="30px" height="30px">
+                            <p class="boton">Tráfico</p>
                         </div>
                     </div>
-                    <div class="botones_control" id="clear_screen">
-                        <p class="boton">Reiniciar</p> 
-                    </div>
                 </section>
-            </div>
         </section>
     </div>
     <script src="https://d3js.org/d3.v5.min.js"></script>
