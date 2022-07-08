@@ -5,14 +5,8 @@
 }
 
 .interactive-zone{
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-}
-
-.pantalla {
-  height: 620px;
-  margin: 0;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
 }
 
 .screen {
@@ -28,15 +22,22 @@
 }
 
 .control_param {
-  padding-bottom: 5px;
+  padding: 10px;
+  display: inherit;
+  gap: 10px;
+  align-content: start;
+  justify-content: start;
+}
+
+.run{
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
 }
 
 .controles {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 5px;
 }
 
@@ -75,4 +76,33 @@
 .boton{
   color: var(--blanco2);
   padding-left: 3px;
+  font-size: 20px;
+}
+
+.negative {
+  padding: 5px;
+  color: var(--secundario);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+/* estilos de app */
+.sector-pantalla{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  justify-items: center;
+  padding-top: 20px;
+}
+.nodos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--verde-agua);
+  height: 18px;
+  width: 18px;
+  font-weight: 900;
+  font-size: 10px;
+  color: var(--blanco2);
+  border-radius: 60px;
 }

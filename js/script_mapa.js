@@ -9,6 +9,39 @@ for (var i = 0; i < btns.length; i++) {
     });
 }
 
+var screen = d3.select(".sector-pantalla");
+
+var inicia = document.querySelector("#start");
+inicia.addEventListener("click", mostrarElementos);
+
+var reinicia = document.querySelector("#clear_screen");
+reinicia.addEventListener("click", restart);
+
+/* Variables */
+var yoffset = 4;
+var w = 550, h = 400 - yoffset, radio = 12;
+
+/* Definicion del CANVAS */
+screen.attr("width", w).attr("height", h);
+console.log(w, h)
+screen.on("contextmenu", function () {
+    d3.event.preventDefault();
+});
+
+function mostrarElementos() {
+    for (let i = 0; i < 20; i++) {
+        for (let j = 0; j < 20; j++) {
+            screen.append('div')
+                .text(nodos[i][j])
+                .attr('class', 'nodos');
+        }
+    }
+}
+
+function num_rand() {
+    return Math.floor((Math.random() * (19 - 1)) + 1);
+}
+/* Seccion Grafos */
 class Graph {
     constructor(graph) {
         if (graph instanceof Map) {
@@ -301,86 +334,75 @@ const nodos = [
     ['TA', 'TB', 'TC', 'TD', 'TE', 'TF', 'TG', 'TH', 'TI', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TP', 'TQ', 'TR', 'TS', 'TT'],
 ];
 
-/* NODOS Y ENLACES */
-var nodo = [], enlace = [];
-var source = [], target = [];
-var ultimoNodo = nodo.length;
+// Se define Grafo
+function crearGrafo() {
+    const route = new Graph();
+    //COLUMNA A
+    route.addNode(nodos[0][0], { 'AB': num_rand(), 'BA': num_rand() })
+    route.addNode(nodos[0][1], { 'AA': num_rand(), 'BB': num_rand(), 'AC': num_rand() })
+    route.addNode(nodos[0][2], { 'AB': num_rand(), 'BC': num_rand(), 'AD': num_rand() })
+    route.addNode(nodos[0][3], { 'AC': num_rand(), 'BD': num_rand(), 'AE': num_rand() })
+    route.addNode(nodos[0][4], { 'AD': num_rand(), 'BE': num_rand(), 'AF': num_rand() })
+    route.addNode(nodos[0][5], { 'AE': num_rand(), 'BF': num_rand(), 'AG': num_rand() })
+    route.addNode(nodos[0][6], { 'AF': num_rand(), 'BG': num_rand(), 'AH': num_rand() })
+    route.addNode(nodos[0][7], { 'AG': num_rand(), 'BH': num_rand(), 'AI': num_rand() })
+    route.addNode(nodos[0][8], { 'AH': num_rand(), 'BI': num_rand(), 'AJ': num_rand() })
+    route.addNode(nodos[0][9], { 'AI': num_rand(), 'BJ': num_rand(), 'AK': num_rand() })
+    route.addNode(nodos[0][10], { 'AJ': num_rand(), 'BK': num_rand(), 'AL': num_rand() })
+    route.addNode(nodos[0][11], { 'AK': num_rand(), 'BL': num_rand(), 'AM': num_rand() })
+    route.addNode(nodos[0][12], { 'AL': num_rand(), 'BM': num_rand(), 'AN': num_rand() })
+    route.addNode(nodos[0][13], { 'AM': num_rand(), 'BN': num_rand(), 'AO': num_rand() })
+    route.addNode(nodos[0][14], { 'AN': num_rand(), 'BO': num_rand(), 'AP': num_rand() })
+    route.addNode(nodos[0][15], { 'AO': num_rand(), 'BP': num_rand(), 'AQ': num_rand() })
+    route.addNode(nodos[0][16], { 'AP': num_rand(), 'BQ': num_rand(), 'AR': num_rand() })
+    route.addNode(nodos[0][17], { 'AQ': num_rand(), 'BR': num_rand(), 'AS': num_rand() })
+    route.addNode(nodos[0][18], { 'AR': num_rand(), 'BS': num_rand(), 'AT': num_rand() })
+    route.addNode(nodos[0][19], { 'AS': num_rand(), 'BT': num_rand() })
+    //COLUMNA B
+    route.addNode(nodos[1][0], { 'AA': num_rand(), 'BB': num_rand(), 'CA': num_rand() })
+    route.addNode(nodos[1][1], { 'AB': num_rand(), 'BC': num_rand(), 'BA': num_rand(), 'CB': num_rand() })
+    route.addNode(nodos[1][2], { 'AC': num_rand(), 'BD': num_rand(), 'BB': num_rand(), 'CC': num_rand() })
+    route.addNode(nodos[1][3], { 'AD': num_rand(), 'BE': num_rand(), 'BC': num_rand(), 'CD': num_rand() })
+    route.addNode(nodos[1][4], { 'AE': num_rand(), 'BF': num_rand(), 'BD': num_rand(), 'CE': num_rand() })
+    route.addNode(nodos[1][5], { 'AF': num_rand(), 'BG': num_rand(), 'BE': num_rand(), 'CF': num_rand() })
+    route.addNode(nodos[1][6], { 'AG': num_rand(), 'BH': num_rand(), 'BF': num_rand(), 'CG': num_rand() })
+    route.addNode(nodos[1][7], { 'AH': num_rand(), 'BI': num_rand(), 'BG': num_rand(), 'CH': num_rand() })
+    route.addNode(nodos[1][8], { 'AI': num_rand(), 'BJ': num_rand(), 'BH': num_rand(), 'CI': num_rand() })
+    route.addNode(nodos[1][9], { 'AJ': num_rand(), 'BK': num_rand(), 'BI': num_rand(), 'CJ': num_rand() })
+    route.addNode(nodos[1][10], { 'AK': num_rand(), 'BL': num_rand(), 'BJ': num_rand(), 'CK': num_rand() })
+    route.addNode(nodos[1][11], { 'AL': num_rand(), 'BM': num_rand(), 'BK': num_rand(), 'CL': num_rand() })
+    route.addNode(nodos[1][12], { 'AM': num_rand(), 'BN': num_rand(), 'BL': num_rand(), 'CM': num_rand() })
+    route.addNode(nodos[1][13], { 'AN': num_rand(), 'BO': num_rand(), 'BM': num_rand(), 'CN': num_rand() })
+    route.addNode(nodos[1][14], { 'AO': num_rand(), 'BP': num_rand(), 'BN': num_rand(), 'CO': num_rand() })
+    route.addNode(nodos[1][15], { 'AP': num_rand(), 'BQ': num_rand(), 'BO': num_rand(), 'CP': num_rand() })
+    route.addNode(nodos[1][16], { 'AR': num_rand(), 'BR': num_rand(), 'BP': num_rand(), 'CQ': num_rand() })
+    route.addNode(nodos[1][17], { 'AS': num_rand(), 'BS': num_rand(), 'BQ': num_rand(), 'CR': num_rand() })
+    route.addNode(nodos[1][18], { 'AT': num_rand(), 'BT': num_rand(), 'BR': num_rand(), 'CS': num_rand() })
+    route.addNode(nodos[1][19], { 'AT': num_rand(), 'BS': num_rand(), 'CT': num_rand() })
+    //COLUMNA C
+    route.addNode(nodos[2][0], { 'BA': num_rand(), 'CB': num_rand(), 'DA': num_rand() })
+    route.addNode(nodos[2][1], { 'BB': num_rand(), 'CA': num_rand(), 'CC': num_rand(), 'DB': num_rand() })
+    route.addNode(nodos[2][2], { 'BC': num_rand(), 'CB': num_rand(), 'CD': num_rand(), 'DC': num_rand() })
+    route.addNode(nodos[2][3], { 'BD': num_rand(), 'CC': num_rand(), 'CE': num_rand(), 'DD': num_rand() })
+    route.addNode(nodos[2][4], { 'BE': num_rand(), 'CE': num_rand(), 'CF': num_rand(), 'DE': num_rand() })
+    route.addNode(nodos[2][5], { 'BF': num_rand(), 'CF': num_rand(), 'CG': num_rand(), 'DF': num_rand() })
+    route.addNode(nodos[2][6], { 'BG': num_rand(), 'CG': num_rand(), 'CH': num_rand(), 'DG': num_rand() })
+    route.addNode(nodos[2][7], { 'BH': num_rand(), 'CH': num_rand(), 'CI': num_rand(), 'DH': num_rand() })
+    route.addNode(nodos[2][8], { 'BI': num_rand(), 'CI': num_rand(), 'CJ': num_rand(), 'DI': num_rand() })
+    route.addNode(nodos[2][9], { 'BJ': num_rand(), 'CJ': num_rand(), 'CK': num_rand(), 'DJ': num_rand() })
+    route.addNode(nodos[2][10], { 'BK': num_rand(), 'CK': num_rand(), 'CL': num_rand(), 'DK': num_rand() })
+    route.addNode(nodos[2][11], { 'BL': num_rand(), 'CL': num_rand(), 'CM': num_rand(), 'DL': num_rand() })
+    route.addNode(nodos[2][12], { 'BM': num_rand(), 'CM': num_rand(), 'CN': num_rand(), 'DM': num_rand() })
+    route.addNode(nodos[2][13], { 'BN': num_rand(), 'CN': num_rand(), 'CO': num_rand(), 'DN': num_rand() })
+    route.addNode(nodos[2][14], { 'BO': num_rand(), 'CO': num_rand(), 'CP': num_rand(), 'DO': num_rand() })
+    route.addNode(nodos[2][15], { 'BP': num_rand(), 'CP': num_rand(), 'CQ': num_rand(), 'DP': num_rand() })
+    route.addNode(nodos[2][16], { 'BQ': num_rand(), 'CQ': num_rand(), 'CT': num_rand(), 'DQ': num_rand() })
+    route.addNode(nodos[2][17], { 'BR': num_rand(), 'CR': num_rand(), 'CS': num_rand(), 'DR': num_rand() })
+    route.addNode(nodos[2][18], { 'BS': num_rand(), 'CS': num_rand(), 'CT': num_rand(), 'DS': num_rand() })
+    route.addNode(nodos[2][19], { 'BT': num_rand(), 'CS': num_rand(), 'DT': num_rand() })
+    //COLUMNA D
 
-const route = new Graph();
-//COLUMNA A
-route.addNode(nodos[0][0], {'AB': num_rand(),'BA': num_rand()})
-route.addNode(nodos[0][1], {'AA': num_rand(),'BB': num_rand(),'AC': num_rand()}) 
-route.addNode(nodos[0][2], {'AB': num_rand(),'BC': num_rand(),'AD': num_rand()})
-route.addNode(nodos[0][3], {'AC': num_rand(),'BD': num_rand(),'AE': num_rand()})
-route.addNode(nodos[0][4], {'AD': num_rand(),'BE': num_rand(),'AF': num_rand()})
-route.addNode(nodos[0][5], {'AE': num_rand(),'BF': num_rand(),'AG': num_rand()})
-route.addNode(nodos[0][6], {'AF': num_rand(),'BG': num_rand(),'AH': num_rand()}) 
-route.addNode(nodos[0][7], {'AG': num_rand(),'BH': num_rand(),'AI': num_rand()}) 
-route.addNode(nodos[0][8], {'AH': num_rand(),'BI': num_rand(),'AJ': num_rand()}) 
-route.addNode(nodos[0][9], {'AI': num_rand(),'BJ': num_rand(),'AK': num_rand()}) 
-route.addNode(nodos[0][10], {'AJ': num_rand(),'BK': num_rand(),'AL': num_rand()})
-route.addNode(nodos[0][11], {'AK': num_rand(),'BL': num_rand(),'AM': num_rand()}) 
-route.addNode(nodos[0][12], {'AL': num_rand(),'BM': num_rand(),'AN': num_rand()}) 
-route.addNode(nodos[0][13], {'AM': num_rand(),'BN': num_rand(),'AO': num_rand()}) 
-route.addNode(nodos[0][14], {'AN': num_rand(),'BO': num_rand(),'AP': num_rand()}) 
-route.addNode(nodos[0][15], {'AO': num_rand(),'BP': num_rand(),'AQ': num_rand()}) 
-route.addNode(nodos[0][16], {'AP': num_rand(),'BQ': num_rand(),'AR': num_rand()}) 
-route.addNode(nodos[0][17], {'AQ': num_rand(),'BR': num_rand(),'AS': num_rand()}) 
-route.addNode(nodos[0][18], {'AR': num_rand(),'BS': num_rand(),'AT': num_rand()}) 
-route.addNode(nodos[0][19], {'AS': num_rand(),'BT': num_rand()})
-//COLUMNA B
-route.addNode(nodos[1][0], {'AA':num_rand(),'BB':num_rand(),'CA':num_rand()}) 
-route.addNode(nodos[1][1], {'AB':num_rand(),'BC':num_rand(),'BA':num_rand(),'CB':num_rand()}) 
-route.addNode(nodos[1][2], {'AC':num_rand(),'BD':num_rand(),'BB':num_rand(),'CC':num_rand()})   
-route.addNode(nodos[1][3], {'AD':num_rand(),'BE':num_rand(),'BC':num_rand(),'CD':num_rand()}) 
-route.addNode(nodos[1][4], {'AE':num_rand(),'BF':num_rand(),'BD':num_rand(),'CE':num_rand()}) 
-route.addNode(nodos[1][5], {'AF':num_rand(),'BG':num_rand(),'BE':num_rand(),'CF':num_rand()}) 
-route.addNode(nodos[1][6], {'AG':num_rand(),'BH':num_rand(),'BF':num_rand(),'CG':num_rand()}) 
-route.addNode(nodos[1][7], {'AH':num_rand(),'BI':num_rand(),'BG':num_rand(),'CH':num_rand()})    
-route.addNode(nodos[1][8], {'AI':num_rand(),'BJ':num_rand(),'BH':num_rand(),'CI':num_rand()}) 
-route.addNode(nodos[1][9], {'AJ':num_rand(),'BK':num_rand(),'BI':num_rand(),'CJ':num_rand()}) 
-route.addNode(nodos[1][10], {'AK':num_rand(),'BL':num_rand(),'BJ':num_rand(),'CK':num_rand()}) 
-route.addNode(nodos[1][11], {'AL':num_rand(),'BM':num_rand(),'BK':num_rand(),'CL':num_rand()}) 
-route.addNode(nodos[1][12], {'AM':num_rand(),'BN':num_rand(),'BL':num_rand(),'CM':num_rand()}) 
-route.addNode(nodos[1][13], {'AN':num_rand(),'BO':num_rand(),'BM':num_rand(),'CN':num_rand()}) 
-route.addNode(nodos[1][14], {'AO':num_rand(),'BP':num_rand(),'BN':num_rand(),'CO':num_rand()}) 
-route.addNode(nodos[1][15], {'AP':num_rand(),'BQ':num_rand(),'BO':num_rand(),'CP':num_rand()}) 
-route.addNode(nodos[1][16], {'AR':num_rand(),'BR':num_rand(),'BP':num_rand(),'CQ':num_rand()}) 
-route.addNode(nodos[1][17], {'AS':num_rand(),'BS':num_rand(),'BQ':num_rand(),'CR':num_rand()}) 
-route.addNode(nodos[1][18], {'AT':num_rand(),'BT':num_rand(),'BR':num_rand(),'CS':num_rand()}) 
-route.addNode(nodos[1][19], {'AT':num_rand(),'BS':num_rand(),'CT':num_rand()})
-//COLUMNA C
-route.addNode(nodos[2][0], {'BA':num_rand(),'CB':num_rand(),'DA':num_rand()}) 
-route.addNode(nodos[2][1], {'BB':num_rand(),'CA':num_rand(),'CC':num_rand(),'DB':num_rand()})
-route.addNode(nodos[2][2], {'BC':num_rand(),'CB':num_rand(),'CD':num_rand(),'DC':num_rand()})
-route.addNode(nodos[2][3], {'BD':num_rand(),'CC':num_rand(),'CE':num_rand(),'DD':num_rand()})
-route.addNode(nodos[2][4], {'BE':num_rand(),'CE':num_rand(),'CF':num_rand(),'DE':num_rand()})
-route.addNode(nodos[2][5], {'BF':num_rand(),'CF':num_rand(),'CG':num_rand(),'DF':num_rand()})
-route.addNode(nodos[2][6], {'BG':num_rand(),'CG':num_rand(),'CH':num_rand(),'DG':num_rand()})
-route.addNode(nodos[2][7], {'BH':num_rand(),'CH':num_rand(),'CI':num_rand(),'DH':num_rand()})
-route.addNode(nodos[2][8], {'BI':num_rand(),'CI':num_rand(),'CJ':num_rand(),'DI':num_rand()})
-route.addNode(nodos[2][9],  {'BJ':num_rand(),'CJ':num_rand(),'CK':num_rand(),'DJ':num_rand()})
-route.addNode(nodos[2][10], {'BK':num_rand(),'CK':num_rand(),'CL':num_rand(),'DK':num_rand()})
-route.addNode(nodos[2][11], {'BL':num_rand(),'CL':num_rand(),'CM':num_rand(),'DL':num_rand()})
-route.addNode(nodos[2][12], {'BM':num_rand(),'CM':num_rand(),'CN':num_rand(),'DM':num_rand()})
-route.addNode(nodos[2][13], {'BN':num_rand(),'CN':num_rand(),'CO':num_rand(),'DN':num_rand()})
-route.addNode(nodos[2][14], {'BO':num_rand(),'CO':num_rand(),'CP':num_rand(),'DO':num_rand()})
-route.addNode(nodos[2][15], {'BP':num_rand(),'CP':num_rand(),'CQ':num_rand(),'DP':num_rand()})
-route.addNode(nodos[2][16], {'BQ':num_rand(),'CQ':num_rand(),'CT':num_rand(),'DQ':num_rand()})
-route.addNode(nodos[2][17], {'BR':num_rand(),'CR':num_rand(),'CS':num_rand(),'DR':num_rand()})
-route.addNode(nodos[2][18], {'BS':num_rand(),'CS':num_rand(),'CT':num_rand(),'DS':num_rand()})
-route.addNode(nodos[2][19], {'BT':num_rand(),'CS':num_rand(),'DT':num_rand()})
-//COLUMNA D
-
-
-/*for (let index = 0; index < 400; index++) {
-    //matriz_terc[index] = Array(nodo.length).fill(0);
-    mat_identidad[index] = Array(nodo.length).fill(0);
-    matrizRes[index] = Array(nodo.length).fill(0);
-}*/
-
-console.log(route.path(nodos[2][0], nodos[0][8]))
-
-function num_rand(){
-    return Math.floor((Math.random() * (19 - 1 + 1)) + 1);
+    console.log(route.path(nodos[2][0], nodos[0][8]))
 }
+
+function restart() { }
